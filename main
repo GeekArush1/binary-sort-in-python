@@ -1,0 +1,32 @@
+def binary_sort(sorted_list, length, number):
+    start = 0
+    end = length-1
+    while start <= end:
+        mid = (start + end) // 2
+        if number == sorted_list[mid]:
+            return mid
+        elif number < sorted_list[mid]:
+            end = mid - 1
+        elif number > sorted_list[mid]:
+            start = mid + 1
+    return -1
+
+
+list = []
+
+size = int(input("Enter size of list: "))
+
+for i in range(size):
+    numbers = int(input("Enter any number: "))
+    list.append(numbers)
+
+list.sort()
+print(' The sorted list is:', list)
+
+number = int(input("Enter the number to search: "))
+
+a=binary_sort(list, size, number)
+if a==-1:
+    print("Element not found")
+else:
+    print(f"Element at {a}")
